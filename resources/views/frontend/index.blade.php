@@ -379,7 +379,7 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>We Offer Different Services To Improve Your Health</h2>
-                        <img src="img/section-img.png" alt="#">
+                        <img src="{{ url('frontend/img/section-img.png') }}" alt="#">
                         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                     </div>
                 </div>
@@ -626,35 +626,35 @@
     <!-- Start clients -->
     {{-- <div class="clients overlay">
         <div class="container">
-            <div class="row">
+            <div class="row grid">
                 <div class="col-lg-12 col-md-12 col-12">
-                    <div class="owl-carousel clients-slider">
+                    <div class="owl-carousel owl-theme clients-slider">
                         <div class="single-clients">
-                            <img src="frontend/img/client1.png" alt="#">
+                            <img src="{{ url('frontend/img/client1.png') }}" alt="#">
                         </div>
                         <div class="single-clients">
-                            <img src="frontend/img/client2.png" alt="#">
+                            <img src="{{ url('frontend/img/client2.png') }}" alt="#">
                         </div>
                         <div class="single-clients">
-                            <img src="frontend/img/client3.png" alt="#">
+                            <img src="{{ url('frontend/img/client3.png') }}" alt="#">
                         </div>
                         <div class="single-clients">
-                            <img src="frontend/img/client4.png" alt="#">
+                            <img src="{{ url('frontend/img/client4.png') }}" alt="#">
                         </div>
                         <div class="single-clients">
-                            <img src="frontend/img/client5.png" alt="#">
+                            <img src="{{ url('frontend/img/client5.png') }}" alt="#">
                         </div>
                         <div class="single-clients">
-                            <img src="frontend/img/client1.png" alt="#">
+                            <img src="{{ url('frontend/img/client1.png') }}" alt="#">
                         </div>
                         <div class="single-clients">
-                            <img src="frontend/img/client2.png" alt="#">
+                            <img src="{{ url('frontend/img/client2.png') }}" alt="#">
                         </div>
                         <div class="single-clients">
-                            <img src="frontend/img/client3.png" alt="#">
+                            <img src="{{ url('frontend/img/client3.png') }}" alt="#">
                         </div>
                         <div class="single-clients">
-                            <img src="frontend/img/client4.png" alt="#">
+                            <img src="{{ url('frontend/img/client4.png') }}" alt="#">
                         </div>
                     </div>
                 </div>

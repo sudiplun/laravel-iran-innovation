@@ -8,7 +8,7 @@
                     <div class="col-12">
                         <h2>blog single</h2>
                         <ul class="bread-list">
-                            <li><a href="{{ route('index') }}">home</a></li>
+                            <li><a href="{{ route('mediplus.index') }}">home</a></li>
                             <li><i class="icofont-simple-right"></i></li>
                             <li class="active">blog single</li>
                         </ul>
@@ -72,7 +72,7 @@
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-12">
                                                 <div class="single-image">
-                                                    <img src="{{ 'frontend/img/blog3.jpg' }}" alt="#">
+                                                    <img src="{{ url('frontend/img/blog3.jpg') }}" alt="#">
                                                 </div>
                                             </div>
                                         </div>

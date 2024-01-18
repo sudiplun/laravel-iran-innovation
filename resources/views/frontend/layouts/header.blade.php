@@ -34,7 +34,7 @@
                     <div class="col-lg-3 col-md-3 col-12">
                         <!-- Start Logo -->
                         <div class="logo">
-                            <a href="{{ route('index') }}"><img src="{{ url('frontend/img/logo.png') }}"
+                            <a href="{{ route('mediplus.index') }}"><img src="{{ url('frontend/img/logo.png') }}"
                                     alt="#"></a>
                         </div>
                         <!-- End Logo -->
@@ -49,7 +49,7 @@
                                 <ul class="nav menu">
                                     <li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
                                         <ul class="dropdown">
-                                            <li><a href="index.html">Home Page 1</a></li>
+                                            <li><a href="{{ route('mediplus.index') }}">Home Page 1</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Doctos </a></li>

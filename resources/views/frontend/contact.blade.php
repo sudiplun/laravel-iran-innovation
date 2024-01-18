@@ -8,7 +8,7 @@
                     <div class="col-12">
                         <h2>Contact Us</h2>
                         <ul class="bread-list">
-                            <li><a href="{{ route('index') }}">Home</a></li>
+                            <li><a href="{{ route('mediplus.index') }}">Home</a></li>
                             <li><i class="icofont-simple-right"></i></li>
                             <li class="active">Contact Us</li>
                         </ul>

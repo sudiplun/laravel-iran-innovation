@@ -63,6 +63,7 @@
         </div>
     </div>
     @include('frontend.layouts.header')
+    {{-- main content --}}
     @yield('main-content')
     @include('frontend.layouts.footer')
 
