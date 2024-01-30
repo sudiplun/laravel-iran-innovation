@@ -4,62 +4,26 @@
     <section class="slider">
         <div class="hero-slider">
             <!-- Start Single Slider -->
-            <div class="single-slider" style="background-image:url({{ url('frontend/img/slider2.jpg') }})">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="text">
-                                <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque,
-                                    faucibus libero eu, gravida quam. </p>
-                                <div class="button">
-                                    <a href="#" class="btn">Get Appointment</a>
-                                    <a href="#" class="btn primary">Learn More</a>
+            @foreach ($sliders as $slider)
+                <div class="single-slider" style="background-image:url({{ url('frontend/img/slider.jpg') }})">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="text">
+                                    <h1>{{ $slider->head }}</h1>
+                                    <p>{{ $slider->description }}</p>
+                                    <div class="button">
+                                        <a href="#" class="btn">Get Appointment</a>
+                                        <a href="#" class="btn primary">Learn More</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- End Single Slider -->
-            <!-- Start Single Slider -->
-            <div class="single-slider" style="background-image:url({{ url('frontend/img/slider.jpg') }})">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="text">
-                                <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque,
-                                    faucibus libero eu, gravida quam. </p>
-                                <div class="button">
-                                    <a href="#" class="btn">Get Appointment</a>
-                                    <a href="#" class="btn primary">About Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Start End Slider -->
-            <!-- Start Single Slider -->
-            <div class="single-slider" style="background-image:url({{ url('frontend/img/slider3.jpg') }})">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="text">
-                                <h1>We Provide <span>Medical</span> Services That You Can <span>Trust!</span></h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nisl pellentesque,
-                                    faucibus libero eu, gravida quam. </p>
-                                <div class="button">
-                                    <a href="#" class="btn">Get Appointment</a>
-                                    <a href="#" class="btn primary">Conatct Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Slider -->
+                <!-- End Single Slider -->
+            @endforeach
         </div>
     </section>
     <!--/ End Slider Area -->
@@ -111,10 +75,10 @@
                                     <i class="icofont-ui-clock"></i>
                                 </div>
                                 <div class="single-content">
-                                    <span>Donec luctus</span>
+                                    <span>Doctor schedule</span>
                                     <h4>Opening Hours</h4>
                                     <ul class="time-sidual">
-                                        <li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
+                                        <li class="day">Monday - Friday <span>8.00-20.00</span></li>
                                         <li class="day">Saturday <span>9.00-18.30</span></li>
                                         <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
                                     </ul>
@@ -136,7 +100,7 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>We Are Always Ready to Help You & Your Family</h2>
-                        <img src="img/section-img.png" alt="#">
+                        <img src="background-image:url({{ url('frontend/img/section-img.png') }}" alt="#">
                         <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
                     </div>
                 </div>
