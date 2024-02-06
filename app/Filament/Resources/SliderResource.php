@@ -20,6 +20,8 @@ class SliderResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = 'Pages';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -36,11 +38,12 @@ class SliderResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('photo')->size(80),
                 TextColumn::make('head')
                     ->label('Title'),
-                TextColumn::make('description'),
-                ImageColumn::make('photo'),
-
+                TextColumn::make('description')
+                    // ->description(fn (Slider $record): string => $record->description)
+                    ->markdown(),
             ])
             ->filters([
                 //

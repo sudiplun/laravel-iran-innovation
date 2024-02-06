@@ -7,6 +7,7 @@ class Frontend extends Controller
     public function index(SliderController $sliderController)
     {
         $sliders = $sliderController->showSlider();
+
         return view('frontend.index', compact('sliders'));
     }
 
@@ -15,8 +16,10 @@ class Frontend extends Controller
         return view('frontend.contact');
     }
 
-    public function blog()
+    public function blog(BlogController $blogController)
     {
-        return view('frontend.blog-single');
+        $blogs = $blogController->showBlog();
+
+        return view('frontend.blog-single', compact('blogs'));
     }
 }
