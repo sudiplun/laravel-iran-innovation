@@ -640,7 +640,7 @@
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-12 col-12">
-                <form class="form" action="{{route('appointment.book') }}" method="post">
+                <form class="form" action="" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
@@ -673,7 +673,7 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-group">
-                                <div class="nice-select form-control wide" tabindex="0"><span class="current">Doctor</span>
+                                <div class="nice-select form-control wide" tabindex="3"><span class="current">Doctor</span>
                                     <ul class="list">
                                         <li data-value="1" class="option selected ">Doctor</li>
                                         <li data-value="2" class="option">Dr. Akther Hossain</li>

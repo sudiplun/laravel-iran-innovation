@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->unsignedBigInteger('phone');
-            $table->string('doctor');
-            $table->dateTime('date');
+            $table->string('doctor')->nullable();
+            $table->dateTime('date')->nullable();
             $table->timestamps();
         });
     }

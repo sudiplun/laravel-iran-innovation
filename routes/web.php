@@ -15,4 +15,4 @@ Route::controller(Frontend::class)->group(function () {
     Route::get('/blog-single', 'blog')
         ->name('mediplus.blog');
 });
-Route::post('/', [AppointmentController::class, 'store'])->name('appointment.book');
+Route::post('', [AppointmentController::class, 'store'])->name('appointments.store');

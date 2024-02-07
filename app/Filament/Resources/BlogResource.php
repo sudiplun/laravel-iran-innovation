@@ -66,7 +66,7 @@ class BlogResource extends Resource
                     ->toggleable(),
                 TextColumn::make('body')
                     ->description(fn (Blog $blog): string => $blog->body, position: 'below')
-                    ->markdown()
+                    ->html()
                     ->searchable(),
                 Tables\Columns\IconColumn::make('active')
                     ->boolean(),
