@@ -6,7 +6,6 @@
         <!-- Start Single Slider -->
         @foreach ($sliders as $slider)
         <div class="single-slider" style="background-image:url( {{ "storage/$slider->photo" }} )">
-            {{-- <img src="{{ "storage/$slider->photo" }}" alt="{{ $slider->head ?? 'Slider Image' }}"> --}}
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
@@ -425,7 +424,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <diiv class="row">
             <!-- Single Table -->
             <div class="col-lg-4 col-md-12 col-12">
                 <div class="single-table">
@@ -510,7 +509,7 @@
                 </div>
             </div>
             <!-- End Single Table-->
-        </div>
+    </div>
     </div>
 </section>
 <!--/ End Pricing Table -->
@@ -659,10 +658,10 @@
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
-                            <div class="form-group">
+                            {{--<div class="form-group">
                                 <div class="nice-select form-control wide" tabindex="0"><span class="current">Department</span>
                                     <ul class="list">
-                                        <li data-value="1" class="option selected ">Department</li>
+                                        <li data-value="1" class="option" data-display="Select">Department</li>
                                         <li data-value="2" class="option">Cardiac Clinic</li>
                                         <li data-value="3" class="option">Neurology</li>
                                         <li data-value="4" class="option">Dentistry</li>
@@ -670,9 +669,17 @@
                                     </ul>
                                 </div>
                             </div>
+--}}
+                            <div class="form-group">
+                                <input name="department" type="text" placeholder="Department">
+                            </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
                             <div class="form-group">
+                                <div class="form-group">
+                                    <input name="doctor" type="text" placeholder="Doctor">
+                                </div>
+                                {{--
                                 <div class="nice-select form-control wide" tabindex="3"><span class="current">Doctor</span>
                                     <ul class="list">
                                         <li data-value="1" class="option selected ">Doctor</li>
@@ -681,6 +688,7 @@
                                         <li data-value="4" class="option">Dr. Jovis Karon</li>
                                     </ul>
                                 </div>
+--}}
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
@@ -745,5 +753,4 @@
         </div>
     </div>
 </section>
-<!-- /End Newsletter Area -->
 @endsection

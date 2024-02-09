@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class WhoWeAre extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['icon', 'title', 'description', 'active'];
+    protected $fillable = [
+        'description', 'video',
+    ];
 }

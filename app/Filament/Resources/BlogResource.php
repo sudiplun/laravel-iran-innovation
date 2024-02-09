@@ -11,13 +11,14 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 
 class BlogResource extends Resource
 {
     protected static ?string $model = Blog::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     protected static ?string $navigationGroup = 'Pages';
 
@@ -65,9 +66,9 @@ class BlogResource extends Resource
                 Tables\Columns\TextColumn::make('slug')
                     ->toggleable(),
                 TextColumn::make('body')
-                    ->description(fn (Blog $blog): string => $blog->body, position: 'below')
-                    ->html()
-                    ->searchable(),
+                    ->description(fn (Blog $blog): string => new HtmlString($blog->body)),
+                // ->html()
+                // ->description(fn (Blog $blog): string => $blog->body, position: 'below')
                 Tables\Columns\IconColumn::make('active')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('published_at')

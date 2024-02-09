@@ -85,7 +85,7 @@
     <!-- ScrollUp JS -->
     <script src="{{ url('frontend/js/jquery.scrollUp.min.js') }}"></script>
     <!-- Niceselect JS -->
-    <script src="{{ url('frontend/js/niceselect.js') }}"></script>
+    <script src="{{ url('frontend/js/jquery.nice-select.js') }}"></script>
     <!-- Tilt Jquery JS -->
     <script src="{{ url('frontend/js/tilt.jquery.min.js') }}"></script>
     <!-- Owl Carousel JS -->

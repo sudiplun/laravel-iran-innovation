@@ -2,23 +2,21 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SliderResource\Pages;
-use App\Models\Slider;
-use Filament\Forms\Components\FileUpload;
+use App\Filament\Resources\CardViewResource\Pages;
+use App\Models\CardView;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class SliderResource extends Resource
+class CardViewResource extends Resource
 {
-    protected static ?string $model = Slider::class;
+    protected static ?string $model = CardView::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-credit-card';
 
     protected static ?string $navigationGroup = 'Pages';
 
@@ -26,13 +24,14 @@ class SliderResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('head')->required(),
+                TextInput::make('title')
+                    ->required(),
+                TextInput::make('sub_title')
+                    ->required(),
                 RichEditor::make('description')
                     ->required(),
-                FileUpload::make('photo')
-                    ->image()
-                    ->required()
-                    ->imageEditor(),
+                TextInput::make('Link')
+                    ->required(),
             ]);
     }
 
@@ -40,18 +39,19 @@ class SliderResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('photo')->size(80),
-                TextColumn::make('head')
-                    ->label('Title'),
+                TextColumn::make('title')
+                    ->searchable(),
+                TextColumn::make('sub_title'),
                 TextColumn::make('description')
-                    // ->description(fn (Slider $record): string => $record->description)
-                    ->markdown(),
+                    ->markdown()
+                    ->searchable(),
+                TextColumn::make('Link')
+                    ->toggleable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -71,10 +71,9 @@ class SliderResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSliders::route('/'),
-            'create' => Pages\CreateSlider::route('/create'),
-            'view' => Pages\ViewSlider::route('/{record}'),
-            'edit' => Pages\EditSlider::route('/{record}/edit'),
+            'index' => Pages\ListCardViews::route('/'),
+            'create' => Pages\CreateCardView::route('/create'),
+            'edit' => Pages\EditCardView::route('/{record}/edit'),
         ];
     }
 }

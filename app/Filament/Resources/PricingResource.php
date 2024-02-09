@@ -2,10 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SliderResource\Pages;
-use App\Models\Slider;
+use App\Filament\Resources\PricingResource\Pages;
+use App\Models\Pricing;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -14,11 +13,11 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class SliderResource extends Resource
+class PricingResource extends Resource
 {
-    protected static ?string $model = Slider::class;
+    protected static ?string $model = Pricing::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-currency-rupee';
 
     protected static ?string $navigationGroup = 'Pages';
 
@@ -26,13 +25,12 @@ class SliderResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('head')->required(),
-                RichEditor::make('description')
+                TextInput::make('title')
                     ->required(),
-                FileUpload::make('photo')
-                    ->image()
-                    ->required()
-                    ->imageEditor(),
+                TextInput::make('price')
+                    ->required(),
+                FileUpload::make('icon')
+                    ->required(),
             ]);
     }
 
@@ -40,18 +38,18 @@ class SliderResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('photo')->size(80),
-                TextColumn::make('head')
-                    ->label('Title'),
-                TextColumn::make('description')
-                    // ->description(fn (Slider $record): string => $record->description)
-                    ->markdown(),
+                ImageColumn::make('icon')
+                    ->toggleable(),
+                TextColumn::make('title')
+                    ->searchable(),
+                TextColumn::make('price')
+                    ->toggleable()
+                    ->searchable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -71,10 +69,9 @@ class SliderResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSliders::route('/'),
-            'create' => Pages\CreateSlider::route('/create'),
-            'view' => Pages\ViewSlider::route('/{record}'),
-            'edit' => Pages\EditSlider::route('/{record}/edit'),
+            'index' => Pages\ListPricings::route('/'),
+            'create' => Pages\CreatePricing::route('/create'),
+            'edit' => Pages\EditPricing::route('/{record}/edit'),
         ];
     }
 }
