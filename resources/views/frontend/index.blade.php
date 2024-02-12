@@ -5,7 +5,7 @@
     <div class="hero-slider">
         <!-- Start Single Slider -->
         @foreach ($sliders as $slider)
-        <div class="single-slider" style="background-image:url( {{ "storage/$slider->photo" }} )">
+        <div class="single-slider" style="background-image:url({{"storage/$slider->photo"}})">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
@@ -32,6 +32,7 @@
     <div class="container">
         <div class="schedule-inner">
             <div class="row">
+                @foreach ($cards as $card)
                 <div class="col-lg-4 col-md-6 col-12 ">
                     <!-- single-schedule -->
                     <div class="single-schedule first">
@@ -40,52 +41,15 @@
                                 <i class="fa fa-ambulance"></i>
                             </div>
                             <div class="single-content">
-                                <span>Lorem Amet</span>
-                                <h4>Emergency Cases</h4>
-                                <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis
-                                    sodales.</p>
-                                <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
+                                <span>{{ $card->sub_title }}</span>
+                                <h4>{{$card->title}}</h4>
+                                <p>{!! $card->description !!}</p>
+                                <a href="{{$card->Link}}">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <!-- single-schedule -->
-                    <div class="single-schedule middle">
-                        <div class="inner">
-                            <div class="icon">
-                                <i class="icofont-prescription"></i>
-                            </div>
-                            <div class="single-content">
-                                <span>Fusce Porttitor</span>
-                                <h4>Doctors Timetable</h4>
-                                <p>Lorem ipsum sit amet consectetur adipiscing elit. Vivamus et erat in lacus convallis
-                                    sodales.</p>
-                                <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-12">
-                    <!-- single-schedule -->
-                    <div class="single-schedule last">
-                        <div class="inner">
-                            <div class="icon">
-                                <i class="icofont-ui-clock"></i>
-                            </div>
-                            <div class="single-content">
-                                <span>Doctor schedule</span>
-                                <h4>Opening Hours</h4>
-                                <ul class="time-sidual">
-                                    <li class="day">Monday - Friday <span>8.00-20.00</span></li>
-                                    <li class="day">Saturday <span>9.00-18.30</span></li>
-                                    <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-                                </ul>
-                                <a href="#">LEARN MORE<i class="fa fa-long-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -204,7 +168,7 @@
                 <div class="section-title">
                     <h2> To Improve Your Health</h2>
                     <img src="{{ url('frontend/img/section-img.png') }}" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>While we should always strive to accomplish these types of health goals, the road to better health doesn't always have to mean making huge leaps.</p>
                 </div>
             </div>
         </div>
@@ -213,6 +177,7 @@
                 <!-- Start Choose Left -->
                 <div class="choose-left">
                     <h3>Who We Are</h3>
+                    {{--
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra antege vel est
                         lobortis, a commodo magna rhoncus. In quis nisi non emet quam pharetra commodo. </p>
                     <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
@@ -232,6 +197,12 @@
                             </ul>
                         </div>
                     </div>
+                    --}}
+                    @foreach($whoWeAres as $whoWeAre)
+                    <p>
+                        {!! $whoWeAre->description !!}
+                    </p>
+                    @endforeach
                 </div>
                 <!-- End Choose Left -->
             </div>
@@ -342,71 +313,24 @@
                 <div class="section-title">
                     <h2>We Offer Different Services To Improve Your Health</h2>
                     <img src="{{ url('frontend/img/section-img.png') }}" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>A lot of factors play a role in staying healthy. In turn, good health can decrease your risk of developing certain diseases or conditions.</p>
                 </div>
             </div>
         </div>
+
         <div class="row">
+            @foreach ($services as $service )
             <div class="col-lg-4 col-md-6 col-12">
                 <!-- Start Single Service -->
                 <div class="single-service">
-                    <i class="icofont icofont-prescription"></i>
-                    <h4><a href="service-details.html">General Treatment</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.
-                    </p>
+                    {{--<i class="icofont icofont-prescription"></i>--}}
+                    <img src="{{'storage/'.$service->icon}}">
+                    <h4>{{$service->title}}</h4>
+                    <p>{!!$service->description!!}</p>
                 </div>
                 <!-- End Single Service -->
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="icofont icofont-tooth"></i>
-                    <h4><a href="service-details.html">Teeth Whitening</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.
-                    </p>
-                </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="icofont icofont-heart-alt"></i>
-                    <h4><a href="service-details.html">Heart Surgery</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.
-                    </p>
-                </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="icofont icofont-listening"></i>
-                    <h4><a href="service-details.html">Ear Treatment</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.
-                    </p>
-                </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="icofont icofont-eye-alt"></i>
-                    <h4><a href="service-details.html">Vision Problems</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.
-                    </p>
-                </div>
-                <!-- End Single Service -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Start Single Service -->
-                <div class="single-service">
-                    <i class="icofont icofont-blood"></i>
-                    <h4><a href="service-details.html">Blood Transfusion</a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut imperdiet.
-                    </p>
-                </div>
-                <!-- End Single Service -->
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -420,12 +344,13 @@
                 <div class="section-title">
                     <h2>We Provide You The Best Treatment In Resonable Price</h2>
                     <img src="{{ url('frontend/img/section-img.png') }}" alt="#">
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                    <p>Providing affordable and quality medical treatment to all citizens is a challenge faced by any government. Few advance countries even </p>
                 </div>
             </div>
         </div>
-        <diiv class="row">
+        <div class="row">
             <!-- Single Table -->
+            @foreach ($pricings as $pricing )
             <div class="col-lg-4 col-md-12 col-12">
                 <div class="single-table">
                     <!-- Table Head -->
@@ -433,9 +358,9 @@
                         <div class="icon">
                             <i class="icofont icofont-ui-cut"></i>
                         </div>
-                        <h4 class="title">Plastic Suggery</h4>
+                        <h4 class="title">{{$pricing->title}}</h4>
                         <div class="price">
-                            <p class="amount">$199<span>/ Per Visit</span></p>
+                            <p class="amount">{{$pricing->price}}<span>/ Per Visit</span></p>
                         </div>
                     </div>
                     <!-- Table List -->
@@ -452,70 +377,12 @@
                     <!-- Table Bottom -->
                 </div>
             </div>
+            @endforeach
             <!-- End Single Table-->
-            <!-- Single Table -->
-            <div class="col-lg-4 col-md-12 col-12">
-                <div class="single-table">
-                    <!-- Table Head -->
-                    <div class="table-head">
-                        <div class="icon">
-                            <i class="icofont icofont-tooth"></i>
-                        </div>
-                        <h4 class="title">Teeth Whitening</h4>
-                        <div class="price">
-                            <p class="amount">$299<span>/ Per Visit</span></p>
-                        </div>
-                    </div>
-                    <!-- Table List -->
-                    <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Donec ultricies metus</li>
-                        <li class="cross"><i class="icofont icofont-ui-close"></i>Pellentesque eget nibh</li>
-                    </ul>
-                    <div class="table-bottom">
-                        <a class="btn" href="#">Book Now</a>
-                    </div>
-                    <!-- Table Bottom -->
-                </div>
-            </div>
-            <!-- End Single Table-->
-            <!-- Single Table -->
-            <div class="col-lg-4 col-md-12 col-12">
-                <div class="single-table">
-                    <!-- Table Head -->
-                    <div class="table-head">
-                        <div class="icon">
-                            <i class="icofont-heart-beat"></i>
-                        </div>
-                        <h4 class="title">Heart Suggery</h4>
-                        <div class="price">
-                            <p class="amount">$399<span>/ Per Visit</span></p>
-                        </div>
-                    </div>
-                    <!-- Table List -->
-                    <ul class="table-list">
-                        <li><i class="icofont icofont-ui-check"></i>Lorem ipsum dolor sit</li>
-                        <li><i class="icofont icofont-ui-check"></i>Cubitur sollicitudin fentum</li>
-                        <li><i class="icofont icofont-ui-check"></i>Nullam interdum enim</li>
-                        <li><i class="icofont icofont-ui-check"></i>Donec ultricies metus</li>
-                        <li><i class="icofont icofont-ui-check"></i>Pellentesque eget nibh</li>
-                    </ul>
-                    <div class="table-bottom">
-                        <a class="btn" href="#">Book Now</a>
-                    </div>
-                    <!-- Table Bottom -->
-                </div>
-            </div>
-            <!-- End Single Table-->
-    </div>
+        </div>
     </div>
 </section>
 <!--/ End Pricing Table -->
-
-
-
 <!-- Start Blog Area -->
 <section class="blog section" id="blog">
     <div class="container">

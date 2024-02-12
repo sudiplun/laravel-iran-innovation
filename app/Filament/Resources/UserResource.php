@@ -2,19 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PricingServiceResource\Pages;
-use App\Models\Pricing;
-use App\Models\PricingService;
+use App\Filament\Resources\UserResource\Pages;
+use App\Models\User;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class PricingServiceResource extends Resource
+class UserResource extends Resource
 {
-    protected static ?string $model = PricingService::class;
+    protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -24,11 +22,16 @@ class PricingServiceResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('services_id')
-                    ->options(Pricing::query()->pluck('title', 'id'))
-                    ->live()
-                    ->required(),
-                Forms\Components\TextInput::make('service')
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('email')
+                    ->email()
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\DateTimePicker::make('email_verified_at'),
+                Forms\Components\TextInput::make('password')
+                    ->password()
                     ->required()
                     ->maxLength(255),
             ]);
@@ -38,11 +41,13 @@ class PricingServiceResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('services_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('service')
+                Tables\Columns\TextColumn::make('name')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('email')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('email_verified_at')
+                    ->dateTime()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -75,9 +80,9 @@ class PricingServiceResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPricingServices::route('/'),
-            'create' => Pages\CreatePricingService::route('/create'),
-            'edit' => Pages\EditPricingService::route('/{record}/edit'),
+            'index' => Pages\ListUsers::route('/'),
+            'create' => Pages\CreateUser::route('/create'),
+            'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
 }

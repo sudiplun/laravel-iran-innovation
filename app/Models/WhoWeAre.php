@@ -10,6 +10,6 @@ class WhoWeAre extends Model
     use HasFactory;
 
     protected $fillable = [
-        'description', 'video',
+        'description',
     ];
 }

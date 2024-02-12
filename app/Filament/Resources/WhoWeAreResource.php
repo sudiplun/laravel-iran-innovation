@@ -2,19 +2,17 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PricingServiceResource\Pages;
-use App\Models\Pricing;
-use App\Models\PricingService;
+use App\Filament\Resources\WhoWeAreResource\Pages;
+use App\Models\WhoWeAre;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 
-class PricingServiceResource extends Resource
+class WhoWeAreResource extends Resource
 {
-    protected static ?string $model = PricingService::class;
+    protected static ?string $model = WhoWeAre::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -24,13 +22,8 @@ class PricingServiceResource extends Resource
     {
         return $form
             ->schema([
-                Select::make('services_id')
-                    ->options(Pricing::query()->pluck('title', 'id'))
-                    ->live()
+                Forms\Components\RichEditor::make('description')
                     ->required(),
-                Forms\Components\TextInput::make('service')
-                    ->required()
-                    ->maxLength(255),
             ]);
     }
 
@@ -38,10 +31,8 @@ class PricingServiceResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('services_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('service')
+                Tables\Columns\TextColumn::make('description')
+                    ->markdown()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -75,9 +66,9 @@ class PricingServiceResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPricingServices::route('/'),
-            'create' => Pages\CreatePricingService::route('/create'),
-            'edit' => Pages\EditPricingService::route('/{record}/edit'),
+            'index' => Pages\ListWhoWeAres::route('/'),
+            'create' => Pages\CreateWhoWeAre::route('/create'),
+            'edit' => Pages\EditWhoWeAre::route('/{record}/edit'),
         ];
     }
 }
