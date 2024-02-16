@@ -11,6 +11,9 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
@@ -45,6 +48,7 @@ class ServiceResource extends Resource
                 TextColumn::make('title')
                     ->searchable(),
                 TextColumn::make('description')
+                    ->words(15)
                     ->markdown(),
                 ToggleColumn::make('active')
                     ->toggleable(),
@@ -61,7 +65,11 @@ class ServiceResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    ViewAction::make(),
+                    DeleteAction::make(),
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

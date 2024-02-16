@@ -7,6 +7,7 @@ use App\Models\Slider;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -15,6 +16,7 @@ use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
 class SliderResource extends Resource
@@ -32,6 +34,7 @@ class SliderResource extends Resource
                 TextInput::make('head')->required(),
                 RichEditor::make('description')
                     ->required(),
+                Toggle::make('active'),
                 FileUpload::make('photo')
                     ->image()
                     ->required()
@@ -49,6 +52,7 @@ class SliderResource extends Resource
                 TextColumn::make('description')
                     // ->description(fn (Slider $record): string => $record->description)
                     ->markdown(),
+                ToggleColumn::make('active'),
             ])
             ->filters([
                 //

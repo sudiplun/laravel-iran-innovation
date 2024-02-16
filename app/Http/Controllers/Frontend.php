@@ -41,13 +41,19 @@ class Frontend extends Controller
     //sliders controller
     public function showSlider()
     {
-        return DB::table('sliders')->get();
+        return DB::table('sliders')
+            ->where('active', '1')
+            ->limit(5)
+            ->get();
     }
 
     //Card controller
     public function showCard()
     {
-        return DB::table('card_views')->get();
+        return DB::table('card_views')
+            ->where('active', '1')
+            ->limit(3)
+            ->get();
     }
 
     public function whoWeAre()
@@ -57,11 +63,14 @@ class Frontend extends Controller
 
     public function Service()
     {
-        return DB::table('services')->get();
+        return DB::table('services')->where('active', '1')->limit(6)->get();
     }
 
     public function pricing()
     {
-        return DB::table('pricings')->get();
+        return DB::table('pricings')
+            ->where('active', '1')
+            ->limit(3)
+            ->get();
     }
 }

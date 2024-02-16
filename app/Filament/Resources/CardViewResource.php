@@ -6,6 +6,7 @@ use App\Filament\Resources\CardViewResource\Pages;
 use App\Models\CardView;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -13,6 +14,7 @@ use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Table;
 
 class CardViewResource extends Resource
@@ -33,6 +35,8 @@ class CardViewResource extends Resource
                     ->required(),
                 RichEditor::make('description')
                     ->required(),
+                Toggle::make('active')
+                    ->required(),
                 TextInput::make('Link')
                     ->required(),
             ]);
@@ -49,6 +53,7 @@ class CardViewResource extends Resource
                     ->words(20)
                     ->markdown()
                     ->searchable(),
+                ToggleColumn::make('active'),
                 TextColumn::make('Link')
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

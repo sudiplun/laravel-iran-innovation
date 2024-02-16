@@ -8,6 +8,6 @@ class BlogController extends Controller
 {
     public function showBlog()
     {
-        return DB::table('blogs')->get();
+        return DB::table('blogs')->where('active', '1')->get();
     }
 }
