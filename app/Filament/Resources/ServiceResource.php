@@ -20,7 +20,7 @@ class ServiceResource extends Resource
 {
     protected static ?string $model = Service::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office';
 
     protected static ?string $navigationGroup = 'Pages';
 
@@ -30,7 +30,9 @@ class ServiceResource extends Resource
             ->schema([
                 TextInput::make('title')->required(),
                 RichEditor::make('description')->required(),
-                FileUpload::make('icon')->required(),
+                FileUpload::make('icon')
+                    ->image()
+                    ->required(),
                 Toggle::make('active')->required(),
             ]);
     }

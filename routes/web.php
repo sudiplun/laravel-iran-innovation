@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Frontend;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(Frontend::class)->group(function () {
@@ -16,3 +17,4 @@ Route::controller(Frontend::class)->group(function () {
         ->name('mediplus.blog');
 });
 Route::post('', [AppointmentController::class, 'store'])->name('appointments.store');
+Route::get('/send', [MailController::class, 'index']);

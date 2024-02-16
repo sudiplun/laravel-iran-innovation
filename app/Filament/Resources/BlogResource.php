@@ -8,7 +8,11 @@ use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\Enums\FontWeight;
 use Filament\Tables;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Support\HtmlString;
@@ -60,15 +64,18 @@ class BlogResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('thumbnail')->size(80),
+                Tables\Columns\ImageColumn::make('thumbnail')->size(100),
                 Tables\Columns\TextColumn::make('title')
+                    ->weight(FontWeight::Bold)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('slug')
-                    ->toggleable(),
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('body')
-                    ->description(fn (Blog $blog): string => new HtmlString($blog->body)),
-                // ->html()
-                // ->description(fn (Blog $blog): string => $blog->body, position: 'below')
+                    ->wrap()
+                    ->html()
+                    ->words(30)
+                    // ->limit(500)
+                    ->description(fn (Blog $blog): string => new HtmlString($blog->body), position: 'below'),
                 Tables\Columns\IconColumn::make('active')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('published_at')
@@ -88,7 +95,11 @@ class BlogResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    ViewAction::make(),
+                    DeleteAction::make(),
+                ]),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
