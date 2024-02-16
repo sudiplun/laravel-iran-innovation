@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('photo');
             $table->string('head');
             $table->string('description', 2048);
+            $table->boolean('active');
             $table->timestamps();
         });
     }

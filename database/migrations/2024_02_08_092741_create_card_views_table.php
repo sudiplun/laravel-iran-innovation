@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('sub_title');
             $table->string('description');
+            $table->boolean('active');
             $table->string('Link');
             $table->timestamps();
         });

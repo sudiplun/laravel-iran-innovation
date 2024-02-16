@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('icon');
             $table->string('title');
             $table->unsignedInteger('price');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
