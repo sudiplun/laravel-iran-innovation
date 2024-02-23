@@ -101,7 +101,7 @@
     <!-- Counter Up CDN JS -->
     <script src="{{ url('frontend/http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js') }}"></script>
     <!-- Google Map API Key JS -->
-    <script src="{{ url('frontend/https://maps.google.com/maps/api/js?key=AIzaSyDGqTyqoPIvYxhn_Sa7ZrK5bENUWhpCo0w') }}">
+    <!--    <script src="{{ url('frontend/https://maps.google.com/maps/api/js?key=AIzaSyDGqTyqoPIvYxhn_Sa7ZrK5bENUWhpCo0w') }}"> -->
     </script>
     <!-- Gmaps JS -->
     <script src="{{ url('frontend/js/gmaps.min.js') }}"></script>

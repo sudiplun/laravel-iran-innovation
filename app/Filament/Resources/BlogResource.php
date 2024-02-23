@@ -42,7 +42,7 @@ class BlogResource extends Resource
                     }),
                 Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->disabled()
+                    // ->disabled()
                     ->dehydrated()
                     ->unique(Blog::class, 'slug', ignoreRecord: true),
                 Forms\Components\FileUpload::make('thumbnail')->required(),

@@ -34,8 +34,7 @@
                     <div class="col-lg-3 col-md-3 col-12">
                         <!-- Start Logo -->
                         <div class="logo">
-                            <a href="{{ route('mediplus.index') }}"><img src="{{ url('frontend/img/logo.png') }}"
-                                    alt="#"></a>
+                            <a href="{{ route('mediplus.index') }}"><img src="{{ url('frontend/img/logo.png') }}" alt="#"></a>
                         </div>
                         <!-- End Logo -->
                         <!-- Mobile Nav -->
@@ -72,7 +71,7 @@
                     </div>
                     <div class="col-lg-2 col-12">
                         <div class="get-quote">
-                            <a href="appointment.html" class="btn">Book Appointment</a>
+                            <a href="#appointment" class="btn">Book Appointment</a>
                         </div>
                     </div>
                 </div>

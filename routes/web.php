@@ -17,4 +17,24 @@ Route::controller(Frontend::class)->group(function () {
         ->name('mediplus.blog');
 });
 Route::post('', [AppointmentController::class, 'store'])->name('appointments.store');
+//
+// Route::post('', 'AppointmentController@strore')->name('appointments.store');
+//
 Route::get('/send', [MailController::class, 'index']);
+
+Route::post('/newsletter', function () {
+    request()->validate(['email', 'required|email']);
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us21',
+    ]);
+
+    $response = $mailchimp->lists->addListMember('917499b476', [
+        'email_address' => request('email'),
+        'status' => 'subscribed',
+    ]);
+
+    return redirect('/')->with('success', 'you have subscribed newsletter successfully.');
+});

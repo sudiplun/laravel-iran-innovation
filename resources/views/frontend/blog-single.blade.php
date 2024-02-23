@@ -30,15 +30,14 @@
                         <div class="single-main">
                             <!-- news head -->
                             <div class="news-head">
-                                <img src="{{ url('frontend/img/blog1.jpg') }}" alt="#">
+                                <img src="{{ 'storage/' . $blog->thumbnail }}" alt="#">
                             </div>
                             <!-- news title -->
                             <h1 class="news-title"><a href="news-single.html">{{ $blog->title}}</a></h1>
                             <!-- meta -->
                             <div class="meta">
                                 <div class="meta-left">
-                                    <span class="author"><a href="#"><img src="{{ url('frontend/img/author1.jpg') }}" alt="#">naimur
-                                            rahman</a></span>
+                                    <span class="author"><a href="#"><img src="{{ url('frontend/img/author1.jpg') }}" alt="#">{{ $blog->author }}</a></span>
                                     <span class="date"><i class="fa fa-clock-o"></i>03 feb 2019</span>
                                 </div>
                                 <div class="meta-right">
@@ -66,34 +65,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse facilisis
-                                    ultricies tortor, nec sollicitudin lorem sagittis vitae. curabitur rhoncus commodo
-                                    rutrum. pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                                    ac turpis egestas. aliquam nec lacus pulvinar, laoreet dolor quis, pellentesque
-                                    ante. cras nulla orci, pharetra at dictum consequat, pretium pretium nulla.
-                                    suspendisse porttitor nunc a sodales tempor. mauris sed felis maximus, interdum
-                                    metus vel, tincidunt diam.</p>
-                                <blockquote class="overlay">
-                                    <p>aliquam nec lacus pulvinar, laoreet dolor quis, pellentesque ante. cras nulla
-                                        orci, pharetra at dictum consequat, pretium pretium nulla. suspendisse porttitor
-                                        nunc a sodales tempor. mauris sed felis maximus, interdum metus vel, tincidunt
-                                        diam. nam ac risus vitae sem vehicula egestas. sed velit nulla, viverra non
-                                        commodo et, sodales</p>
-                                </blockquote>
-                                <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse facilisis
-                                    ultricies tortor, nec sollicitudin lorem sagittis vitae. curabitur rhoncus commodo
-                                    rutrum. pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                                    ac turpis egestas. aliquam nec lacus pulvinar, laoreet dolor quis, pellentesque
-                                    ante. cras nulla orci, pharetra at dictum consequat, pretium pretium nulla.
-                                    suspendisse porttitor nunc a sodales tempor. mauris sed felis maximus, interdum
-                                    metus vel, tincidunt diam. nam ac risus vitae sem vehicula egestas. sed velit nulla,
-                                    viverra non commodo et, sodales id dui.</p>
-                                <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. suspendisse facilisis
-                                    ultricies tortor, nec sollicitudin lorem sagittis vitae. curabitur rhoncus commodo
-                                    rutrum. pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                                    ac turpis egestas. aliquam nec lacus pulvinar, laoreet dolor quis, pellentesque
-                                    ante. cras nulla orci, pharetra at dictum consequat, pretium pretium nulla.
-                                    suspendisse</p>
                             </div>
                             @endforeach
                             <div class="blog-bottom">
